@@ -103,6 +103,18 @@ public class ChordClient {
         return data;
     }
 
+    public void remove(String key) {
+        StringKey dataKey = new StringKey(key);
+        try {
+            Set<Serializable> vals = chord.retrieve(dataKey);
+            Iterator<Serializable> it = vals.iterator();
+            while (it.hasNext()) {
+                this.chord.remove(dataKey, it.next());
+            }
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void remove(String key, RegistrationInfo registrationInfo) {
         StringKey dataKey = new StringKey(key);

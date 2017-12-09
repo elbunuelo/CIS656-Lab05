@@ -61,6 +61,7 @@ public class RegistrationInfo implements Serializable {
      * @param userName the userName to set
      */
     public void setUserName(String userName) {
+
         this.userName = userName;
     }
 
@@ -113,6 +114,7 @@ public class RegistrationInfo implements Serializable {
      * @param status set to true if user is available, false otherwise.
      */
     public void setStatus(boolean status) {
+
         this.status = status;
     }
 

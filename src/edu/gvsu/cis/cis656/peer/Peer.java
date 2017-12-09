@@ -25,7 +25,7 @@ public class Peer implements PresenceService {
     public void unregister(String userName) throws Exception {
         RegistrationInfo reg = client.get(userName);
         if (reg != null) {
-            client.remove(userName, reg);
+            client.remove(userName);
         }
 
     }
@@ -39,6 +39,7 @@ public class Peer implements PresenceService {
     public void setStatus(String userName, boolean status) throws Exception {
         RegistrationInfo reg = client.get(userName);
         if (reg != null) {
+            client.remove(userName);
             reg.setStatus(status);
             client.put(userName, reg);
         }
